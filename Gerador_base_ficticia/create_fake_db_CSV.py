@@ -5,7 +5,7 @@ import numpy as np
 np.random.seed(42)
 
 # Define número de registros
-n = 100000  # Número de clientes
+n = 4000  # Número de clientes
 
 # Cria dicionário com dados fictícios
 data = {
@@ -25,7 +25,7 @@ data = {
         [0, 1], n, p=[0.8, 0.2]
     ),  # 0 = sem inadimplência, 1 = com inadimplência (80/20)
     "Emprego": np.random.choice(
-        ["Estável", "Autônomo", "Desempregado"], n, p=[0.7, 0.2, 0.1]
+        ["CLT", "Autônomo", "Desempregado"], n, p=[0.7, 0.2, 0.1]
     ),  # Tipos de emprego com probabilidades
     "Estado_Civil": np.random.choice(
         ["Solteiro", "Casado", "Divorciado"], n, p=[0.4, 0.5, 0.1]
@@ -35,7 +35,7 @@ data = {
         5000, 1000001, n
     ),  # Valor do empréstimo entre 5000 e 1000000
     "Aprovado": [
-        1 if s > 600 and r > 3000 else 0
+        "APROVADO" if s > 600 and r > 3000 else "REPROVADO0"
         for s, r in zip(np.random.randint(300, 851, n), np.random.normal(5000, 2000, n))
     ],  # Aprovação baseada em score > 600 e renda > 3000
 }
